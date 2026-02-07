@@ -2,10 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const path = require('path');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '..')));
 
 const PORT = process.env.PORT || 3000;
 const RECIPIENT = process.env.CONTACT_RECIPIENT || 'spbluecorp@gmail.com';
